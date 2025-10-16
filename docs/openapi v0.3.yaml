@@ -1,0 +1,69 @@
+openapi: 3.0.3
+info:
+  title: CER Mock API
+  version: 0.1.0
+
+paths:
+  /form/submit:
+    post:
+      summary: Submit form
+      parameters:
+        - in: header
+          name: x-api-key
+          required: true
+          schema: { type: string }
+        - in: header
+          name: x-hmac-signature
+          required: true
+          schema: { type: string }
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                traceId: { type: string }
+                timestamp: { type: string }
+                nonce: { type: string }
+                formData: { type: object }
+      responses:
+        '200': { description: OK }
+
+  /file/presign:
+    post:
+      summary: Presign file
+      parameters:
+        - in: header
+          name: x-api-key
+          required: true
+        - in: header
+          name: x-hmac-signature
+          required: true
+      responses:
+        '200': { description: OK }
+
+  /file/confirm:
+    post:
+      summary: Confirm file upload
+      parameters:
+        - in: header
+          name: x-api-key
+          required: true
+        - in: header
+          name: x-hmac-signature
+          required: true
+      responses:
+        '200': { description: OK }
+
+  /sign/callback:
+    post:
+      summary: Zoho Sign callback
+      parameters:
+        - in: header
+          name: x-api-key
+          required: true
+        - in: header
+          name: x-hmac-signature
+          required: true
+      responses:
+        '200': { description: OK }

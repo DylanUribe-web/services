@@ -1,0 +1,37 @@
+openapi: 3.0.3
+info:
+  title: CER Services - Storage
+  version: "0.1.0"
+
+paths:
+  /storage/put:
+    post:
+      summary: "Registrar ubicación de objeto en S3"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                form_id:
+                  type: string
+                environment:
+                  type: string
+              required: [form_id, environment]
+            example:
+              form_id: "12345"
+              environment: "dev"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  s3_key:
+                    type: string
+              examples:
+                example1:
+                  value:
+                    s3_key: "forms/dev/2025-10-14/12345/form.json"

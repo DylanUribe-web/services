@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: CER Services API
+  version: "0.1.0"
+
+paths:
+  /health:
+    get:
+      summary: Healthcheck
+      responses:
+        '200':
+          description: OK
+
+  /form/submit:
+    post:
+      summary: Submit form
+      parameters:
+        - in: header
+          name: x-api-key
+          required: true
+          schema: { type: string }
+        - in: header
+          name: x-hmac-signature
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Stub
+
+  /file/presign:
+    post:
+      summary: Presign file
+      parameters:
+        - in: header
+          name: x-api-key
+          required: true
+        - in: header
+          name: x-hmac-signature
+          required: true
+      responses:
+        '200': { description: Stub }
+
+  /file/confirm:
+    post:
+      summary: Confirm file upload
+      parameters:
+        - in: header
+          name: x-api-key
+          required: true
+        - in: header
+          name: x-hmac-signature
+          required: true
+      responses:
+        '200': { description: Stub }
+
+  /sign/callback:
+    post:
+      summary: Callback for signature
+      parameters:
+        - in: header
+          name: x-api-key
+          required: true
+        - in: header
+          name: x-hmac-signature
+          required: true
+      responses:
+        '200': { description: Stub }
