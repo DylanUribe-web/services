@@ -21,7 +21,6 @@ Actualmente, todas las funciones pueden ejecutarse en **modo sandbox local** uti
 
 ## Estructura del proyecto
 
-```bash
 services/
 │   README.md                <- Este archivo
 │   make_test.ps1            <- Script de pruebas
