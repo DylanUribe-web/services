@@ -20,7 +20,7 @@ Las funciones permiten:
 Actualmente, todas las funciones pueden ejecutarse en **modo sandbox local** utilizando mocks y pruebas unitarias. La integración con AWS real se realizará cuando se configuren buckets y endpoints por parte de Ángel.
 
 ## Estructura del proyecto
-
+```bash
 services/
 │   README.md                <- Este archivo
 │   make_test.ps1            <- Script de pruebas
@@ -34,6 +34,7 @@ services/
 ├───ingestForm
 ├───presignUpload
 └───signHandler
+```
 
 ## Descripcion de carpetas / Lambdas
 
@@ -45,31 +46,31 @@ services/
 | `presignUpload` | presignUpload | Genera URLs presignadas para subir archivos a S3 con SSE-KMS.    |
 | `signHandler`   | signHandler   | Descarga PDFs firmados desde URL y los guarda en S3.             |
 
-## Instalación y ejecución local
+# Instalación y ejecución local
 
-# Clonar repositorio desde CMD:
+### Clonar repositorio desde CMD:
 
 git clone https://github.com/DylanUribe-web/services
 cd services
 
 
-# Crear entorno y dependencias:
+### Crear entorno y dependencias:
 
 poetry install
 poetry shell
 
 
-# Ejecutar pruebas unitarias:
+### Ejecutar pruebas unitarias:
 
 pytest -v
 
 
-# Ejecutar servidor mock (opcional, para simular endpoints):
+### Ejecutar servidor mock (opcional, para simular endpoints):
 
 python mock_server.py
 
 
-# Probar individualmente una Lambda:
+## Probar individualmente una Lambda:
 
 from ingestForm.handler import handler
 
@@ -92,7 +93,7 @@ signHandler/README.md
 
 Cada README contiene: descripción, inputs/outputs, ejemplos de prueba local y pendientes de integración.
 
-# Pruebas y Validación
+## Pruebas y Validación
 
 Todas las Lambdas cuentan con pruebas unitarias usando pytest.
 
